@@ -15,12 +15,13 @@ namespace ApiModulesExample.Controllers
     {
         private readonly ILogger<ModulesController> _logger;
         private readonly ApplicationPartManager _partManager;
+        private readonly ApiModuleList _apiModules;
 
-
-        public ModulesController(ILogger<ModulesController> logger, ApplicationPartManager partManager)
+        public ModulesController(ILogger<ModulesController> logger, ApplicationPartManager partManager, ApiModuleList apiModules)
         {
             _partManager = partManager;
             _logger = logger;
+            _apiModules = apiModules;
         }
 
         [HttpGet]
@@ -30,6 +31,12 @@ namespace ApiModulesExample.Controllers
             _partManager.PopulateFeature(controllerFeature);
             var modules =  controllerFeature.Controllers.ToList();
             return modules.Select(m => m.Name).ToList();
+        }
+
+        [HttpGet("apimodules")]
+        public ApiModuleList ApiModules()
+        {
+            return _apiModules;
         }
     }
 }

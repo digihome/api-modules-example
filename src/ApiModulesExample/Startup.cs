@@ -20,7 +20,14 @@ namespace ApiModulesExample
         public void ConfigureServices(IServiceCollection services)
         {
             var mvc = services.AddControllers();
-            mvc.AddApiModules();
+            mvc.AddApiModules(new ApiModuleOptions()
+            {
+                DisabledControllers = new System.Collections.Generic.List<string>()
+                {
+                    "AuthController",
+                    "Example1Controller"
+                }
+            });
             mvc.AddControllersAsServices();
 
             services.AddEndpointsApiExplorer();
