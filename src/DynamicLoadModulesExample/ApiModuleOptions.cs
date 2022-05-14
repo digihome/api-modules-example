@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ApiModulesExample
+namespace DynamicLoadModulesExample
 {
     public class ApiModuleOptions
     {

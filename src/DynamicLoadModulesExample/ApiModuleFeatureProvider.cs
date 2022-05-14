@@ -4,14 +4,14 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
 
-namespace ApiModulesExample
+namespace DynamicLoadModulesExample
 {
     public class ApiModuleFeatureProvider : ControllerFeatureProvider
     {
         private readonly bool condition;
-        private readonly ApiModuleOptions options;
+        private readonly ApiModuleOptions? options;
 
-        public ApiModuleFeatureProvider(bool condition, ApiModuleOptions options)
+        public ApiModuleFeatureProvider(bool condition, ApiModuleOptions? options)
         {
             this.condition = condition;
             this.options = options;
@@ -19,7 +19,7 @@ namespace ApiModulesExample
 
         protected override bool IsController(TypeInfo typeInfo)
         {
-            if (condition && options.DisabledControllers.Contains(typeInfo.Name))
+            if (condition && options != null && options.DisabledControllers.Contains(typeInfo.Name))
             {
                 return false;
             }

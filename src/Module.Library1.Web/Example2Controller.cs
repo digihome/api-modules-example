@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ApiModuleLibrary1
+namespace Module.Library.Web
 {
     [ApiController]
     [Route("[controller]")]

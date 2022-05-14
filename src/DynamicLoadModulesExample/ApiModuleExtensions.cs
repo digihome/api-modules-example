@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace ApiModulesExample
+namespace DynamicLoadModulesExample
 {
     public static class ApiModuleExtensions
     {
@@ -21,7 +21,7 @@ namespace ApiModulesExample
                 p.FeatureProviders.Add(new ApiModuleFeatureProvider(true, configure));
             });
             ApiModuleList apiModules = new ApiModuleList();
-            List<string> files = Energy.Base.Directory.GetAllFiles(@".", "ApiModule.*.dll").ToList();
+            List<string> files = Energy.Base.Directory.GetAllFiles(@".", "Module.*.Web.dll").ToList();
             foreach (var file in files)
             {
                 ApiModule module = new ApiModule();
@@ -29,8 +29,9 @@ namespace ApiModulesExample
                 {
                     string absolutePath = Energy.Base.File.GetAbsolutePath(file);
                     module.Path = absolutePath;
-                    var assembly = Assembly.LoadFrom(absolutePath);
-                    module.Name = assembly.GetName().Name;
+                    Assembly assembly = Assembly.LoadFrom(absolutePath);
+                    string? name = assembly.GetName().Name;
+                    module.Name =  name == null ? "unknown" : name;
                     module.Version = Energy.Core.Version.GetProduct(assembly);
                     module.Compilation = Energy.Core.Version.GetCompilation(assembly);
                     builder.AddApplicationPart(assembly);

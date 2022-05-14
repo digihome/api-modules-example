@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiModulesExample", "ApiModulesExample\ApiModulesExample.csproj", "{69A26EA8-002F-4FEE-8584-E04D78A41A9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicLoadModulesExample", "DynamicLoadModulesExample\DynamicLoadModulesExample.csproj", "{69A26EA8-002F-4FEE-8584-E04D78A41A9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiModule.Library1", "ApiModule.Library1\ApiModule.Library1.csproj", "{B838655A-E08D-4BEE-A256-3BB1C3DDF2E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Library1.Web", "Module.Library1.Web\Module.Library1.Web.csproj", "{B838655A-E08D-4BEE-A256-3BB1C3DDF2E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiModule.Auth", "ApiModule.Auth\ApiModule.Auth.csproj", "{64D39133-99D3-468C-9F3A-7D75BE8BBF4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Auth.Web", "Module.Auth.Web\Module.Auth.Web.csproj", "{64D39133-99D3-468C-9F3A-7D75BE8BBF4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

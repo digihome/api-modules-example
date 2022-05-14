@@ -1,4 +1,4 @@
-﻿namespace ApiModulesExample
+﻿namespace DynamicLoadModulesExample
 {
     public class ApiModule
     {
