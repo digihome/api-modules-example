@@ -31,9 +31,10 @@ namespace DynamicLoadModulesExample
             mvc.AddControllersAsServices();
 
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiModulesExample", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiModulesExample", Version = "v1" });
+                options.CustomSchemaIds(type => type.ToString());
             });
         }
 
